@@ -5,7 +5,7 @@
     <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet'>
     <style>
         body {
-            background: #555;
+            background-image: url('assets/background.png');
             font-family: 'VT323';
             font-size: 22px;
         }
@@ -13,12 +13,22 @@
         .content {
             max-width: 1000px;
             margin: auto;
-            background: white;
+            background-color: rgb(255, 255, 255, .5);
             padding: 10px;
         }
+
+        #cursor-canvas {
+            z-index: -100;
+            position: absolute;
+        }
+
     </style>
 </head>
 <body>
+
+    <img id="dvdimg" style="display: none; visibility: hidden; border: none;" src="assets/dvd.png">
+
+    <canvas id="cursor-canvas"></canvas>
 
     <div class="content">
         <h1 style="text-align:center">The Reginalia</h1>
@@ -27,6 +37,49 @@
         <p>Test</p>
 
     </div>
+
+    <script>
+        c = document.getElementById("cursor-canvas");
+        c.width = window.screen.width - 200;
+        c.height = window.screen.height - 200;
+        ctx = c.getContext("2d");
+        const img = document.getElementById("dvdimg");
+
+        var x = 0
+        var y = 0
+        var s = 5
+        var dx = s
+        var dy = s
+
+        function animLoop() {
+
+            ctx.clearRect(0, 0, c.width, c.height)
+            ctx.drawImage(img, x, y)
+            x += dx
+            y += dy
+
+            if (x >= c.width - 200) {
+                dx = -s
+            }
+
+            if (y >= c.height - 117) {
+                dy = -s
+            }
+
+            if (x <= 0) {
+                dx = s
+            }
+
+            if (y <= 0) {
+                dy = s
+            }
+
+
+            window.requestAnimationFrame(animLoop);
+        }
+
+        window.requestAnimationFrame(animLoop);
+    </script>
 
 </body>
 </html>
