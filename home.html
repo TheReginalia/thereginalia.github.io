@@ -1,14 +1,90 @@
-<style>
-    .content {
-        max-width: 500px;
-        margin: auto;
-    }
-</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet'>
+    <style>
+        body {
+            background-image: url('assets/background.png');
+            background-repeat: no-repeat;
+            width: 1;
+            height: 1;
+            font-family: 'VT323';
+            font-size: 22px;
+        }
+
+        .content {
+            max-width: 1000px;
+            margin: auto;
+            background-color: rgb(255, 255, 255, .5);
+            padding: 10px;
+        }
+
+        #cursor-canvas {
+            z-index: -100;
+            position: absolute;
+        }
+    </style>
+</head>
 <body>
+
+    <img id="dvdimg" style="display: none; visibility: hidden; border: none;" src="assets/dvd.png">
+
+    <canvas id="cursor-canvas"></canvas>
+
     <div class="content">
-        <h1>TheReginalia</h1>
+        <h1 style="text-align:center">The Reginalia</h1>
         <p>Test</p>
         <p>Test</p>
         <p>Test</p>
+
     </div>
+
+
+    <script>
+        c = document.getElementById("cursor-canvas");
+        c.width = window.screen.width - 49;
+        c.height = window.screen.height - 157;
+        ctx = c.getContext("2d");
+        const img = document.getElementById("dvdimg");
+
+        var x = 0
+        var y = 0
+        var s = 5
+        var ang = Math.random() * 1.2 + 0.1
+        var dx = s * Math.cos(ang)
+        var dy = s * Math.sin(ang)
+
+
+        function animLoop() {
+
+            ctx.clearRect(0, 0, c.width, c.height)
+            ctx.drawImage(img, x, y)
+            x += dx
+            y += dy
+
+            if (x > c.width - 200) {
+                dx = -dx
+            }
+
+            if (y > c.height - 117) {
+                dy = -dy
+            }
+
+            if (x < 0) {
+                dx = -dx
+            }
+
+            if (y < 0) {
+                dy = -dy
+            }
+
+
+            window.requestAnimationFrame(animLoop);
+        }
+
+        window.requestAnimationFrame(animLoop);
+    </script>
+
 </body>
+</html>

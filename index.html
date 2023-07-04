@@ -6,6 +6,9 @@
     <style>
         body {
             background-image: url('assets/background.png');
+            background-repeat: no-repeat;
+            width: 1;
+            height: 1;
             font-family: 'VT323';
             font-size: 22px;
         }
@@ -22,64 +25,128 @@
             position: absolute;
         }
 
-    </style>
-</head>
-<body>
-
-    <img id="dvdimg" style="display: none; visibility: hidden; border: none;" src="assets/dvd.png">
-
-    <canvas id="cursor-canvas"></canvas>
-
-    <div class="content">
-        <h1 style="text-align:center">The Reginalia</h1>
-        <p>Test</p>
-        <p>Test</p>
-        <p>Test</p>
-
-    </div>
-
-    <script>
-        c = document.getElementById("cursor-canvas");
-        c.width = window.screen.width - 200;
-        c.height = window.screen.height - 200;
-        ctx = c.getContext("2d");
-        const img = document.getElementById("dvdimg");
-
-        var x = 0
-        var y = 0
-        var s = 5
-        var dx = s
-        var dy = s
-
-        function animLoop() {
-
-            ctx.clearRect(0, 0, c.width, c.height)
-            ctx.drawImage(img, x, y)
-            x += dx
-            y += dy
-
-            if (x >= c.width - 200) {
-                dx = -s
-            }
-
-            if (y >= c.height - 117) {
-                dy = -s
-            }
-
-            if (x <= 0) {
-                dx = s
-            }
-
-            if (y <= 0) {
-                dy = s
-            }
-
-
-            window.requestAnimationFrame(animLoop);
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        window.requestAnimationFrame(animLoop);
+        .sidebar {
+            max-width: 200px;
+            background-color: rgb(255, 255, 255, .5);
+            padding: 10px;
+        }
+    </style>
+</head>
+    <script>
+        function numberTxt() {
+            var math1 = Math.random() * Math.random() * Math.random() * 10;
+            var math2 = math1 * 10;
+            let math3 = Math.trunc(math2);
+
+
+            while (true) {
+                if (math3 >= 1) {
+                    break;
+                }
+
+                else if (math3 <= 1) {
+                    numberTxt();
+                }
+            }
+
+
+
+            document.getElementById("numbertxt").innerHTML = math3;
+        }
     </script>
 
-</body>
+    <body onload="numberTxt()">
+
+
+        <img id="dvdimg" style="display: none; visibility: hidden; border: none;" src="assets/dvd.png">
+
+            <canvas id="cursor-canvas"></canvas>
+
+            <div class="content">
+
+                <img src="assets/thereginalia.png" alt="TheReginalia" class="center" width="250" height="250">
+                <h1 style="text-align:center">The Reginalia</h1>
+                <p style="text-align:center">Regin: A person of royalty.</p>
+                <p style="text-align:center">Al(g)ia: A pain caused by.</p>
+                <p style="text-align:center">Reginalia: Pain caused by a person of royalty.</p>
+                <p style="text-align:center">Also me, hi, I'm Reginalia.</p>
+
+
+
+                <h1>About Me!</h1>
+                <p>Welcome to my world of imagination and creativity! I'm Reginalia, a passionate writer and game designer dedicated to crafting captivating stories and immersive gaming experiences. With a pen in one hand and a controller in the other, I traverse the realms of words and pixels, blending the power of narrative and interactive gameplay. From the moment I could hold a pencil, I knew that storytelling was my calling, and over the years, I've honed my skills to transport readers and players to extraordinary worlds. Whether through the written word or the digital realm, I strive to ignite emotions, spark curiosity, and leave an incredible mark on those who embark on the journeys I create</p>
+
+                <h1>Links!</h1>
+                <p><a href="https://www.glassyeyed.fish">glassyeyedfish</a> William! Literally the best person!</p>
+                <p><a href="https://www.w3schools.com/">W3 Schools</a> This website wouldn't be here without W3.</p>
+
+                <p>&nbsp;</p>
+
+                <h2 style="text-align:center" id="numbertxt"></h2>
+                <p style="text-align:center">Please take a number, <FONT COLOR="#ff0000">^ </FONT> I will see you soon.</p>
+
+
+            </div>
+
+            <div class="sidebar">
+                <h2>More Pages!</h2>
+                <p>Blog</p>
+                <p>Projects</p>
+                <p>Images</p>
+
+            </div>
+
+
+            <script>
+                c = document.getElementById("cursor-canvas");
+                c.width = window.screen.width - 64;
+                c.height = window.screen.height;
+                ctx = c.getContext("2d");
+                const img = document.getElementById("dvdimg");
+
+                var x = 0
+                var y = 0
+                var s = 5
+                var ang = Math.random() * 1.2 + 0.1
+                var dx = s * Math.cos(ang)
+                var dy = s * Math.sin(ang)
+
+
+                function animLoop() {
+
+                    ctx.clearRect(0, 0, c.width, c.height)
+            ctx.drawImage(img, x, y)
+                x += dx
+                y += dy
+
+            if (x > c.width - 200) {
+                    dx = -dx
+                }
+
+            if (y > c.height - 117) {
+                    dy = -dy
+                }
+
+                if (x < 0) {
+                    dx = -dx
+                }
+
+                if (y < 0) {
+                    dy = -dy
+                }
+
+
+                window.requestAnimationFrame(animLoop);
+        }
+
+                window.requestAnimationFrame(animLoop);
+</script>
+
+</bodyunload="numberTxt()">
 </html>
