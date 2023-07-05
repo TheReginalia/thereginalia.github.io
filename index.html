@@ -10,15 +10,22 @@
         body {
             background-image: url('assets/background.png');
             background-repeat: no-repeat;
-            width: 1;
-            height: 1;
+            background-size: cover;
             font-family: 'VT323';
             font-size: 22px;
         }
 
-        .content {
+        .container {
             max-width: 1000px;
             margin: auto;
+            background-color: rgb(255, 255, 255, 0);
+            padding: 0px;
+            border: 0px;
+        }
+
+        .content {
+            width: 68%;
+            float: left;
             background-color: rgb(255, 255, 255, .5);
             padding: 10px;
         }
@@ -35,12 +42,8 @@
         }
 
         .sidebar {
-            position: absolute;
-            max-width: 200px;
-            top: 9.9%;
-            right: 22%;
-            -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
+            width: 25%;
+            float: right;
             background-color: rgb(255, 255, 255, .5);
             padding: 10px;
         }
@@ -83,38 +86,40 @@
 
         <canvas id="dvdlogo-canvas"></canvas>
 
-        <div class="content">
+        <div class="container">
+            <div class="content">
 
-            <img src="assets/thereginalia.png" alt="TheReginalia" class="center" width="250" height="250">
-            <h1 style="text-align:center">The Reginalia</h1>
-            <p style="text-align:center">Regin: A person of royalty.</p>
-            <p style="text-align:center">Al(g)ia: A pain caused by.</p>
-            <p style="text-align:center">Reginalia: Pain caused by a person of royalty.</p>
-            <p style="text-align:center">Also me, hi, I'm Reginalia.</p>
-
-
-
-            <h1>About Me!</h1>
-            <p>Welcome to my world of imagination and creativity! I'm Reginalia, a passionate writer and game designer dedicated to crafting captivating stories and immersive gaming experiences. With a pen in one hand and a controller in the other, I traverse the realms of words and pixels, blending the power of narrative and interactive gameplay. From the moment I could hold a pencil, I knew that storytelling was my calling, and over the years, I've honed my skills to transport readers and players to extraordinary worlds. Whether through the written word or the digital realm, I strive to ignite emotions, spark curiosity, and leave an incredible mark on those who embark on the journeys I create</p>
-
-            <h1>Links!</h1>
-            <p><a href="https://www.glassyeyed.fish">glassyeyedfish</a> William! Literally the best person!</p>
-            <p><a href="https://www.w3schools.com/">W3 Schools</a> This website wouldn't be here without W3.</p>
-
-            <p>&nbsp;</p>
-
-            <h2 style="text-align:center" id="numbertxt"></h2>
-            <p style="text-align:center">Please take a number, <FONT COLOR="#ff0000">^ </FONT> I will see you soon.</p>
+                <img src="assets/thereginalia.png" alt="TheReginalia" class="center" width="250" height="250">
+                <h1 style="text-align:center">The Reginalia</h1>
+                <p style="text-align:center">Regin: A person of royalty.</p>
+                <p style="text-align:center">Al(g)ia: A pain caused by.</p>
+                <p style="text-align:center">Reginalia: Pain caused by a person of royalty.</p>
+                <p style="text-align:center">Also me, hi, I'm Reginalia.</p>
 
 
-        </div>
 
-        <div class="sidebar">
-            <h2>More Pages!</h2>
-            <p>Blog</p>
-            <p>Projects</p>
-            <p>Images</p>
+                <h1>About Me!</h1>
+                <p>Welcome to my world of imagination and creativity! I'm Reginalia, a passionate writer and game designer dedicated to crafting captivating stories and immersive gaming experiences. With a pen in one hand and a controller in the other, I traverse the realms of words and pixels, blending the power of narrative and interactive gameplay. From the moment I could hold a pencil, I knew that storytelling was my calling, and over the years, I've honed my skills to transport readers and players to extraordinary worlds. Whether through the written word or the digital realm, I strive to ignite emotions, spark curiosity, and leave an incredible mark on those who embark on the journeys I create.</p>
 
+                <h1>Links!</h1>
+                <p><a href="https://www.glassyeyed.fish">glassyeyedfish</a> William! Literally the best person!</p>
+                <p><a href="https://www.w3schools.com/">W3 Schools</a> This website wouldn't be here without W3.</p>
+
+                <p>&nbsp;</p>
+
+                <h2 style="text-align:center" id="numbertxt"></h2>
+                <p style="text-align:center">Please take a number, <FONT COLOR="#ff0000">^ </FONT> I will see you soon.</p>
+
+
+            </div>
+
+            <div class="sidebar">
+                <h2>More Pages!</h2>
+                <p>Blog</p>
+                <p>Projects</p>
+                <p>Images</p>
+
+            </div>
         </div>
 
 
