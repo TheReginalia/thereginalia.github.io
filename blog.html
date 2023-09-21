@@ -95,8 +95,8 @@
 
     <script>
             c = document.getElementById("dvdlogo-canvas");
-            c.width = window.screen.width - 64;
-            c.height = window.screen.height;
+            c.width = window.innerWidth;
+            c.height = window.innerHeight;
             ctx = c.getContext("2d");
             var img = document.getElementById("dvdimg");
 
