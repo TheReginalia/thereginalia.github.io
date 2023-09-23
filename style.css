@@ -44,12 +44,12 @@ a {
     border-color: rgb(249, 157, 252);
     border-radius: 5px;
     padding: 10px;
-    color: rgb(227, 222, 255);
+    color: rgb(230, 222, 255);
 }
 
 #dvdlogo-canvas {
     z-index: -100;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
