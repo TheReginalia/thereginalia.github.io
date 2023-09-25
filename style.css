@@ -11,8 +11,10 @@ a {
 }
 
     a:hover {
-        font-style: italic;
+        font-style: oblique;
+        font-weight: bold;
         color: rgb(103, 78, 245); 
+  
     }
 
 .container {
