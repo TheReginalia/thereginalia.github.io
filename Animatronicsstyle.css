@@ -1,5 +1,5 @@
 body {
-    background-image: url("assets/bg.png");
+    background-image: url("assets/bg.gif");
     background-repeat: repeat;
     background-attachment: fixed;
     font-family: 'News Cycle';
@@ -16,20 +16,7 @@ h1 {
 .container {
     max-width: 1000px;
     margin-left: 25%;
-    background-color: rgba(128, 128, 128, 0);
+    background-color: rgb(255, 255, 255);
     padding: 0px;
     border: 0px;
-
-}
-
-.content {
-    width: 66%;
-    float: left;
-    background-color: rgb(128, 128, 128);
-    border-width: 7px;
-    border-style: solid;
-    border-color: rgb(249, 157, 252);
-    border-radius: 5px;
-    padding: 15px;
-    color: rgb(128, 128, 128);
 }
