@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('bgimg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+nav {
+    background-color: #555;
+    overflow: hidden;
+    padding-left: 10px; /* Adjust the padding to make space for the logo */
+}
+
+nav a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #555;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px; /* Add margin between navigation links */
+}
+
+nav a:hover {
+    background-color: #333;
+}
+.logo {
+    float: left;
+    padding: 10px;
+}
+@media screen and (max-width: 600px) {
+    nav a {
+        float: none;
+        display: inline-block;
+    }
+}
+
+.logo img {
+    max-width: 80px; /* Adjust the maximum width to your desired size */
+    height: auto;
+    margin-top: -10px;
+}
+.logo {
+    float: left;
+    padding: 10px;
+}
+.main-content {
+    width: calc(70% - 40px); /* Adjusted width to account for padding */
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.6); /* Transparent white background */
+    margin-left: 20px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.side-content {
+    width: calc(30% - 40px); /* Adjusted width to account for padding */
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.6); /* Transparent white background */
+    margin-left: 30px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .main-content, .side-content {
+        width: 100%;
+        margin-right: 0; /* Remove margin for side content on smaller screens */
+    }
+}
+
+.login-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.login-button a {
+    padding: 10px 20px;
+    background-color: #555;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.login-button a:hover {
+    background-color: #333;
+}
