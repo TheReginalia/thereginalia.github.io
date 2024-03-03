@@ -3,27 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fuck this fuckign clodgofihsgiof</title>
+<title>Clock Control Panel</title>
 <style>
   body {
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
     margin: 0;
+    padding-top: 20px;
   }
 
   #clock {
     font-size: 48px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 20px;
     color: #333;
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  #info {
+    margin-top: 20px;
+    font-size: 18px;
   }
 
   form {
@@ -61,6 +67,7 @@
 </head>
 <body>
   <div id="clock">00:00:00</div>
+  <div id="info">Real Time Passed: 00:00:00<br>Fake Time Passed: 00:00:00<br>Tick Rate: 0 ticks/second</div>
   <form id="timeForm">
     <label for="hours">Initial Hours:</label>
     <input type="number" id="hours" min="0" max="23" value="0"><br>
@@ -85,6 +92,10 @@
   let minutes = 0;
   let seconds = 0;
   let interval;
+  let realTimeElapsed = 0;
+  let fakeTimeElapsed = 0;
+  let tickRate = 0;
+  let lastRealTime = new Date();
 
   function setInitialTime() {
     hours = parseInt(document.getElementById('hours').value);
@@ -101,24 +112,38 @@
 
     clearInterval(interval);
     if (totalSecondsPerSec !== 0) {
+      tickRate = totalSecondsPerSec;
       interval = setInterval(updateTime, 1000 / totalSecondsPerSec);
     }
+    updateInfo();
   }
 
   function updateTime() {
-    seconds++;
-    if (seconds >= 60) {
-      seconds = 0;
-      minutes++;
-      if (minutes >= 60) {
-        minutes = 0;
-        hours++;
-        if (hours >= 24) {
-          hours = 0;
+    const now = new Date();
+    const elapsedSeconds = (now - lastRealTime) / 1000;
+    realTimeElapsed += elapsedSeconds;
+    lastRealTime = now;
+
+    fakeTimeElapsed += elapsedSeconds * tickRate;
+
+    while (fakeTimeElapsed >= 1) {
+      fakeTimeElapsed--;
+      seconds++;
+      if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+        if (minutes >= 60) {
+          minutes = 0;
+          hours++;
+          if (hours >= 24) {
+            hours = 0;
+          }
         }
       }
     }
+
     updateClockDisplay();
+    updateInfo();
   }
 
   function updateClockDisplay() {
@@ -128,6 +153,18 @@
 
   function padZero(num) {
     return num.toString().padStart(2, '0');
+  }
+
+  function updateInfo() {
+    const realTimeHours = Math.floor(realTimeElapsed / 3600);
+    const realTimeMinutes = Math.floor((realTimeElapsed % 3600) / 60);
+    const realTimeSeconds = Math.floor(realTimeElapsed % 60);
+
+    const fakeTimeHours = Math.floor(fakeTimeElapsed / 3600);
+    const fakeTimeMinutes = Math.floor((fakeTimeElapsed % 3600) / 60);
+    const fakeTimeSeconds = Math.floor(fakeTimeElapsed % 60);
+
+    document.getElementById('info').innerHTML = `Real Time Passed: ${padZero(realTimeHours)}:${padZero(realTimeMinutes)}:${padZero(realTimeSeconds)}<br>Fake Time Passed: ${padZero(fakeTimeHours)}:${padZero(fakeTimeMinutes)}:${padZero(fakeTimeSeconds)}<br>Tick Rate: ${tickRate.toFixed(2)} ticks/second`;
   }
 
   // Initial setup

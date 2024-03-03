@@ -1,0 +1,180 @@
+#dvdlogo-canvas {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1; 
+}
+
+body {
+    font-family: 'VT323', monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #0c001c;
+    color: rgb(219, 243, 255);
+    height: 100%;
+    overflow: inherit;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    max-width: 1200px;
+    margin: 0 auto; 
+}
+
+header {
+    background-color: rgba(48, 0, 115, .7);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li:first-child {
+    margin-left: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+nav ul li a:hover {
+    background-color: #001a82;
+    border-radius: 8px;
+}
+
+nav ul li a.active {
+    background-color: #466bff;
+    color: #fff; 
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: row;
+    }
+
+    nav ul li {
+        margin-left: 10px;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+}
+
+main {
+    flex: 1;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.container-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-content {
+    flex: 1;
+    padding: 10px;
+    background-color: rgba(42, 0, 100, 0.95);
+    border: 4px solid #ff4dff;
+    border-radius: 8px;
+    margin-right: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    margin-top: 25px;
+}
+
+.main-content-two {
+    flex: 1;
+    padding: 10px;
+    background-color: rgba(42, 0, 100, 0.95);
+    border: 4px solid #ff4dff;
+    border-radius: 8px;
+    margin-right: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    margin-top: 25px;
+    align-items: center;
+    text-align: left;
+}
+
+.main-content-img {
+    flex: 1;
+    padding: 10px;
+    background-color: rgba(42, 0, 100, 0.95);
+    border: 4px solid #ff4dff;
+    border-radius: 8px;
+    margin-right: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    margin-top: 25px;
+    align-items: center;
+    text-align: center;
+}
+
+.side-content {
+    flex: 1;
+    max-width: 30%;
+    padding: 10px;
+    background-color: rgba(42, 0, 100, 0.95);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    border: 4px solid #ff4dff;
+    border-radius: 8px;
+    margin-left: 10px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+a {
+    color: #ff4dff;
+}
+
+a:hover {
+    color: #00ffff;
+}
+
+footer {
+    background-color: rgba(48, 0, 115, .7);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 20;
+    position: relative;
+    flex-shrink: 0;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+
