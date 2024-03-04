@@ -1,174 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clock Control Panel</title>
-<style>
-  body {
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding-top: 20px;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clock Control Panel</title>
+  <style>
+    body {
+      background-color: #333;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding-top: 20px;
+    }
 
-  #clock {
-    font-size: 48px;
-    text-align: center;
-    margin-top: 20px;
-    color: #333;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+    #clock {
+      font-size: 48px;
+      text-align: center;
+      margin-top: 20px;
+      color: #fff;
+      background-color: #222;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-  #info {
-    margin-top: 20px;
-    font-size: 18px;
-  }
+    #info {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #bbb;
+    }
 
-  form {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
 
-  label {
-    margin-bottom: 5px;
-  }
+    .input-group {
+      display: flex;
+      align-items: center;
+    }
 
-  input {
-    margin-bottom: 10px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+    label {
+      margin-bottom: 5px;
+      margin-right: 10px;
+    }
 
-  button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
+    input, button {
+      padding: 8px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background-color: #222;
+      color: #fff;
+    }
 
-  button:hover {
-    background-color: #0056b3;
-  }
-</style>
+    input[type="number"] {
+      width: 100px;
+    }
+
+    button {
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
   <div id="clock">00:00:00</div>
   <div id="info">Real Time Passed: 00:00:00<br>Fake Time Passed: 00:00:00<br>Tick Rate: 0 ticks/second</div>
-  <form id="timeForm">
-    <label for="hours">Initial Hours:</label>
-    <input type="number" id="hours" min="0" max="23" value="0"><br>
-    <label for="minutes">Initial Minutes:</label>
-    <input type="number" id="minutes" min="0" max="59" value="0"><br>
-    <label for="seconds">Initial Seconds:</label>
-    <input type="number" id="seconds" min="0" max="59" value="0"><br>
-    <button type="button" onclick="setInitialTime()">Set Initial Time</button>
-  </form>
-  <form id="rateForm">
-    <label for="hoursPerSec">Hours per second:</label>
-    <input type="number" id="hoursPerSec" min="0" step="0.1" value="0"><br>
-    <label for="minutesPerSec">Minutes per second:</label>
-    <input type="number" id="minutesPerSec" min="0" step="0.1" value="0"><br>
-    <label for="secondsPerSec">Seconds per second:</label>
-    <input type="number" id="secondsPerSec" min="0" step="0.1" value="0"><br>
-    <button type="button" onclick="setClockRate()">Set Clock Rate</button>
-  </form>
+  
+  <div class="form-container">
+    <form id="timeForm">
+      <div class="input-group">
+        <label for="hours">Initial Hours:</label>
+        <input type="number" id="hours" min="0" max="23" value="0">
+      </div>
+      <div class="input-group">
+        <label for="minutes">Initial Minutes:</label>
+        <input type="number" id="minutes" min="0" max="59" value="0">
+      </div>
+      <div class="input-group">
+        <label for="seconds">Initial Seconds:</label>
+        <input type="number" id="seconds" min="0" max="59" value="0">
+      </div>
+      <button type="button" onclick="setInitialTime()">Set Initial Time</button>
+    </form>
+  </div>
+  
+  <div class="form-container">
+    <form id="rateForm">
+      <div class="input-group">
+        <label for="hoursPerSec">Hours per second:</label>
+        <input type="number" id="hoursPerSec" min="0" step="0.1" value="0">
+      </div>
+      <div class="input-group">
+        <label for="minutesPerSec">Minutes per second:</label>
+        <input type="number" id="minutesPerSec" min="0" step="0.1" value="0">
+      </div>
+      <div class="input-group">
+        <label for="secondsPerSec">Seconds per second:</label>
+        <input type="number" id="secondsPerSec" min="0" step="0.1" value="0">
+      </div>
+      <button type="button" onclick="setClockRate()">Set Clock Rate</button>
+    </form>
+  </div>
+  
+  <div class="form-container">
+    <form id="alarmForm">
+      <div class="input-group">
+        <label for="alarmHours">Alarm Hours:</label>
+        <input type="number" id="alarmHours" min="0" max="23" value="0">
+      </div>
+      <div class="input-group">
+        <label for="alarmMinutes">Alarm Minutes:</label>
+        <input type="number" id="alarmMinutes" min="0" max="59" value="0">
+      </div>
+      <div class="input-group">
+        <label for="alarmSeconds">Alarm Seconds:</label>
+        <input type="number" id="alarmSeconds" min="0" max="59" value="0">
+      </div>
+      <button type="button" onclick="setAlarm()">Set Alarm</button>
+    </form>
+  </div>
 
-<script>
-  let hours = 0;
-  let minutes = 0;
-  let seconds = 0;
-  let interval;
-  let realTimeElapsed = 0;
-  let fakeTimeElapsed = 0;
-  let tickRate = 0;
-  let lastRealTime = new Date();
+  <!-- Hidden audio element for the alarm sound -->
+  <audio id="alarmAudio" preload="auto">
+    <source src="alarm.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
-  function setInitialTime() {
-    hours = parseInt(document.getElementById('hours').value);
-    minutes = parseInt(document.getElementById('minutes').value);
-    seconds = parseInt(document.getElementById('seconds').value);
-    updateClockDisplay();
-  }
+  <script>
+    let hours = 0;
+    let minutes = 0;
+    let seconds = 0;
+    let interval;
+    let realTimeElapsed = 0;
+    let fakeTimeElapsed = 0;
+    let tickRate = 0;
+    let lastRealTime = new Date();
 
-  function setClockRate() {
-    const hoursPerSec = parseFloat(document.getElementById('hoursPerSec').value);
-    const minutesPerSec = parseFloat(document.getElementById('minutesPerSec').value);
-    const secondsPerSec = parseFloat(document.getElementById('secondsPerSec').value);
-    const totalSecondsPerSec = hoursPerSec * 3600 + minutesPerSec * 60 + secondsPerSec;
+    let alarmHours = 0;
+    let alarmMinutes = 0;
+    let alarmSeconds = 0;
 
-    clearInterval(interval);
-    if (totalSecondsPerSec !== 0) {
-      tickRate = totalSecondsPerSec;
-      interval = setInterval(updateTime, 1000 / totalSecondsPerSec);
+    function setInitialTime() {
+      hours = parseInt(document.getElementById('hours').value);
+      minutes = parseInt(document.getElementById('minutes').value);
+      seconds = parseInt(document.getElementById('seconds').value);
+      updateClockDisplay();
     }
-    updateInfo();
-  }
 
-  function updateTime() {
-    const now = new Date();
-    const elapsedSeconds = (now - lastRealTime) / 1000;
-    realTimeElapsed += elapsedSeconds;
-    lastRealTime = now;
+    function setClockRate() {
+      const hoursPerSec = parseFloat(document.getElementById('hoursPerSec').value);
+      const minutesPerSec = parseFloat(document.getElementById('minutesPerSec').value);
+      const secondsPerSec = parseFloat(document.getElementById('secondsPerSec').value);
+      const totalSecondsPerSec = hoursPerSec * 3600 + minutesPerSec * 60 + secondsPerSec;
 
-    fakeTimeElapsed += elapsedSeconds * tickRate;
+      clearInterval(interval);
+      if (totalSecondsPerSec !== 0) {
+        tickRate = totalSecondsPerSec;
+        interval = setInterval(updateTime, 1000 / totalSecondsPerSec);
+      }
+      updateInfo();
+    }
 
-    while (fakeTimeElapsed >= 1) {
-      fakeTimeElapsed--;
-      seconds++;
-      if (seconds >= 60) {
-        seconds = 0;
-        minutes++;
-        if (minutes >= 60) {
-          minutes = 0;
-          hours++;
-          if (hours >= 24) {
-            hours = 0;
+    function setAlarm() {
+      alarmHours = parseInt(document.getElementById('alarmHours').value);
+      alarmMinutes = parseInt(document.getElementById('alarmMinutes').value);
+      alarmSeconds = parseInt(document.getElementById('alarmSeconds').value);
+    }
+
+    function updateTime() {
+      const now = new Date();
+      const elapsedSeconds = (now - lastRealTime) / 1000;
+      realTimeElapsed += elapsedSeconds;
+      lastRealTime = now;
+
+      fakeTimeElapsed += elapsedSeconds * tickRate;
+
+      while (fakeTimeElapsed >= 1) {
+        fakeTimeElapsed--;
+        seconds++;
+        if (seconds >= 60) {
+          seconds = 0;
+          minutes++;
+          if (minutes >= 60) {
+            minutes = 0;
+            hours++;
+            if (hours >= 24) {
+              hours = 0;
+            }
           }
         }
       }
+
+      updateClockDisplay();
+      updateInfo();
+
+      // Check if fake time matches the alarm time
+      if (hours === alarmHours && minutes === alarmMinutes && seconds === alarmSeconds) {
+        // Play the alarm sound
+        const alarmAudio = document.getElementById('alarmAudio');
+        alarmAudio.play().then(() => {
+          console.log('Alarm sound played successfully');
+        }).catch(error => {
+          console.error('Error playing alarm sound:', error);
+        });
+      }
     }
 
-    updateClockDisplay();
-    updateInfo();
-  }
+    function updateClockDisplay() {
+      const formattedTime = `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
+      document.getElementById('clock').textContent = formattedTime;
+    }
 
-  function updateClockDisplay() {
-    const formattedTime = `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
-    document.getElementById('clock').textContent = formattedTime;
-  }
+    function padZero(num) {
+      return num.toString().padStart(2, '0');
+    }
 
-  function padZero(num) {
-    return num.toString().padStart(2, '0');
-  }
+    function updateInfo() {
+      const realTimeHours = Math.floor(realTimeElapsed / 3600);
+      const realTimeMinutes = Math.floor((realTimeElapsed % 3600) / 60);
+      const realTimeSeconds = Math.floor(realTimeElapsed % 60);
 
-  function updateInfo() {
-    const realTimeHours = Math.floor(realTimeElapsed / 3600);
-    const realTimeMinutes = Math.floor((realTimeElapsed % 3600) / 60);
-    const realTimeSeconds = Math.floor(realTimeElapsed % 60);
+      const fakeTimeHours = Math.floor(fakeTimeElapsed / 3600);
+      const fakeTimeMinutes = Math.floor((fakeTimeElapsed % 3600) / 60);
+      const fakeTimeSeconds = Math.floor(fakeTimeElapsed % 60);
 
-    const fakeTimeHours = Math.floor(fakeTimeElapsed / 3600);
-    const fakeTimeMinutes = Math.floor((fakeTimeElapsed % 3600) / 60);
-    const fakeTimeSeconds = Math.floor(fakeTimeElapsed % 60);
+      document.getElementById('info').innerHTML = `Real Time Passed: ${padZero(realTimeHours)}:${padZero(realTimeMinutes)}:${padZero(realTimeSeconds)}<br>Fake Time Passed: ${padZero(fakeTimeHours)}:${padZero(fakeTimeMinutes)}:${padZero(fakeTimeSeconds)}<br>Tick Rate: ${tickRate.toFixed(2)} ticks/second`;
+    }
 
-    document.getElementById('info').innerHTML = `Real Time Passed: ${padZero(realTimeHours)}:${padZero(realTimeMinutes)}:${padZero(realTimeSeconds)}<br>Fake Time Passed: ${padZero(fakeTimeHours)}:${padZero(fakeTimeMinutes)}:${padZero(fakeTimeSeconds)}<br>Tick Rate: ${tickRate.toFixed(2)} ticks/second`;
-  }
-
-  // Initial setup
-  setInitialTime();
-</script>
+    // Initial setup
+    setInitialTime();
+  </script>
 </body>
 </html>
