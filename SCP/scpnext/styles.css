@@ -1,0 +1,120 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1c1c1c;
+    color: #ffffff;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header.navbar {
+    background-color: #282828;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header.navbar .logo img {
+    height: 50px;
+}
+
+header.navbar nav {
+    display: flex;
+    gap: 15px;
+}
+
+header.navbar nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header.navbar nav a:hover {
+    background-color: #444;
+}
+
+main.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+section.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+section.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+section.hero p {
+    font-size: 1.2em;
+    max-width: 800px;
+}
+
+.chatbox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.chatbox .text {
+    color: #ffffff;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+}
+
+.chatbox .text .message {
+    margin: 5px 0;
+    width: fit-content;
+    max-width: 80%;
+    padding: 5px 10px;
+    border-radius: 10px;
+    position: relative;
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.chatbox .text .left {
+    align-self: flex-start;
+    background-color: #555;
+}
+
+.chatbox .text .right {
+    align-self: flex-end;
+    background-color: #777;
+}
+
+footer {
+    background-color: #282828;
+    color: #777;
+    text-align: center;
+    padding: 20px 0;
+    flex-shrink: 0;
+}
