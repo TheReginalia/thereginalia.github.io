@@ -170,7 +170,7 @@ function adjustMessages() {
 
     for (let i = messageElements.length - 1; i >= 0; i--) {
         const messageElement = messageElements[i];
-        totalHeight += messageElement.offsetHeight + 10; // Add margin
+        totalHeight += messageElement.offsetHeight + 10;
         if (totalHeight > chatboxHeight) {
             chatboxText.removeChild(messageElement);
         }
@@ -178,20 +178,37 @@ function adjustMessages() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Retrieve the formatted username from localStorage
     const username = localStorage.getItem('username');
 
-    // Display the username if it exists
     if (username) {
         const welcomeMessage = document.getElementById('welcome-message');
         welcomeMessage.innerText = `Welcome, ${username}!`;
+    }
+
+    const yourFileLink = document.getElementById('your-file-link');
+    if (yourFileLink) {
+        yourFileLink.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            if (username === 'Danielle Gonzalez') {
+                window.location.href = 'employee/danielle.html';
+            } else if (username === 'Margaret Thien') {
+                window.location.href = 'employees/margaret.html';
+            } else if (username === 'Lysolos Tom') {
+                window.location.href = 'employees/lysolos.html';
+            } else if (username === 'Edgar Graves') {
+                window.location.href = 'employees/edgar.html'  
+            } else {
+                window.location.href = 'employee/failscreen.html';
+            }
+        });
     }
 });
 
 
 function setRandomInterval() {
-    const randomDelay = Math.floor(Math.random() * 10000) + 1000; // Random delay between 1 and 10 seconds
+    const randomDelay = Math.floor(Math.random() * 10000) + 1000;
     setTimeout(addMessage, randomDelay);
 }
 
-setRandomInterval(); // Start the first interval
+setRandomInterval();

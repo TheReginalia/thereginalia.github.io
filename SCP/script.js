@@ -3,11 +3,11 @@ function validateLogin() {
     const password = document.getElementById('password').value;
 
     const validCombinations = {
-        'SarahSmith': 'Pass',
-        'Test2U': 'Test2P',
-        'Test3U': 'Test3P',
-        'Test4U': 'Test4P',
-        'Test5U': 'Test5P'
+        'SarahSmith': 'TEST',
+        'DanielleGonzalez': '5053318662',
+        'MargaretThien': '2696716504',
+        'LysolosTom': '3019771858',
+        'EdgarGraves': '7416615711'
     };
 
     if (validCombinations[username] === password) {
