@@ -40,17 +40,17 @@ header.navbar nav a:hover {
 }
 
 main.container {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 10px;
+    max-width: 1500px;
+    margin: left;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     flex: 1;
 }
 
 section.hero {
-    text-align: center;
+    text-align: left;
     margin-bottom: 40px;
 }
 
@@ -117,4 +117,10 @@ footer {
     text-align: center;
     padding: 20px 0;
     flex-shrink: 0;
+}
+
+.welcome-message {
+    font-size: 24px; /* Change this to the desired font size */
+    font-weight: bold; /* Change this to the desired font weight (e.g., normal, bold, bolder, 100-900) */
+    margin-top: 20px; /* Optional: Add some space above the message */
 }

@@ -3,7 +3,7 @@ function validateLogin() {
     const password = document.getElementById('password').value;
 
     const validCombinations = {
-        'Test1U': 'Test1P',
+        'SarahSmith': 'Pass',
         'Test2U': 'Test2P',
         'Test3U': 'Test3P',
         'Test4U': 'Test4P',
@@ -11,6 +11,12 @@ function validateLogin() {
     };
 
     if (validCombinations[username] === password) {
+        // Format the username (e.g., add a space between 'Sarah' and 'Smith')
+        const formattedUsername = username.replace(/([a-z])([A-Z])/g, '$1 $2');
+
+        // Store the formatted username in localStorage
+        localStorage.setItem('username', formattedUsername);
+
         const logo = document.getElementById('logo');
         logo.classList.add('grow-spin');
 

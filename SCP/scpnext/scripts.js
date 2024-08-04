@@ -177,6 +177,18 @@ function adjustMessages() {
     }
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Retrieve the formatted username from localStorage
+    const username = localStorage.getItem('username');
+
+    // Display the username if it exists
+    if (username) {
+        const welcomeMessage = document.getElementById('welcome-message');
+        welcomeMessage.innerText = `Welcome, ${username}!`;
+    }
+});
+
+
 function setRandomInterval() {
     const randomDelay = Math.floor(Math.random() * 10000) + 1000; // Random delay between 1 and 10 seconds
     setTimeout(addMessage, randomDelay);
