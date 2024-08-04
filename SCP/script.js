@@ -3,7 +3,7 @@ function validateLogin() {
     const password = document.getElementById('password').value;
 
     const validCombinations = {
-        'SarahSmith': 'TEST',
+        '1': '1',
         'DanielleGonzalez': '5053318662',
         'MargaretThien': '2696716504',
         'LysolosTom': '3019771858',
@@ -11,10 +11,8 @@ function validateLogin() {
     };
 
     if (validCombinations[username] === password) {
-        // Format the username (e.g., add a space between 'Sarah' and 'Smith')
         const formattedUsername = username.replace(/([a-z])([A-Z])/g, '$1 $2');
 
-        // Store the formatted username in localStorage
         localStorage.setItem('username', formattedUsername);
 
         const logo = document.getElementById('logo');
@@ -26,12 +24,12 @@ function validateLogin() {
 
             setTimeout(() => {
                 window.location.href = 'scpnext/scphome.html';
-            }, 1000); // Wait for the fade animation to complete (1 second)
-        }, 2000); // Wait for the logo animation to complete (2 seconds)
+            }, 1000);
+        }, 2000);
 
-        return false; // Prevent form submission
+        return false;
     } else {
         alert('Invalid username or password');
-        return false; // Prevent form submission
+        return false;
     }
 }

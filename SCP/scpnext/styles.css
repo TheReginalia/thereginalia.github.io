@@ -120,7 +120,7 @@ footer {
 }
 
 .welcome-message {
-    font-size: 24px; /* Change this to the desired font size */
-    font-weight: bold; /* Change this to the desired font weight (e.g., normal, bold, bolder, 100-900) */
-    margin-top: 20px; /* Optional: Add some space above the message */
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px; 
 }

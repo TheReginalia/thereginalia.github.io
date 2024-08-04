@@ -7,7 +7,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Prevent scroll during animation */
+    overflow: hidden;
 }
 
 .login-container {
@@ -17,7 +17,7 @@ body {
 .logo {
     width: 150px;
     margin-bottom: 20px;
-    transition: transform 0.5s ease-in-out; /* Smooth transformation */
+    transition: transform 0.5s ease-in-out;
 }
 
 .logo.grow-spin {
@@ -29,7 +29,7 @@ body {
         transform: scale(1) rotate(0deg);
     }
     100% {
-        transform: scale(20) rotate(360deg); /* Updated scale value to 20 */
+        transform: scale(20) rotate(360deg);
     }
 }
 
@@ -41,7 +41,7 @@ body {
     height: 100%;
     background-color: white;
     opacity: 0;
-    pointer-events: none; /* Prevent interaction with the fade div */
+    pointer-events: none;
     transition: opacity 1s ease-in-out;
 }
 

@@ -149,7 +149,7 @@ function getRandomMessage() {
 }
 
 function addMessage() {
-    const side = Math.random() > 0.5 ? 'left' : 'right';
+    const side = Math.random() > .000000001 ? 'left' : 'right';
     const message = getRandomMessage();
     const messageElement = createMessageElement(message, side);
     chatboxText.appendChild(messageElement);
