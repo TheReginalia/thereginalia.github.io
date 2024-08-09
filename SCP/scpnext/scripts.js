@@ -160,7 +160,7 @@ function addMessage() {
         adjustMessages();
     }, 100);
 
-    setRandomInterval(); // Set the next random interval
+    setRandomInterval();
 }
 
 function adjustMessages() {
@@ -193,11 +193,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (username === 'Danielle Gonzalez') {
                 window.location.href = 'employee/danielle.html';
             } else if (username === 'Margaret Thien') {
-                window.location.href = 'employees/margaret.html';
+                window.location.href = 'employee/margaret.html';
             } else if (username === 'Lysolos Tom') {
-                window.location.href = 'employees/lysolos.html';
+                window.location.href = 'employee/lysolos.html';
             } else if (username === 'Edgar Graves') {
-                window.location.href = 'employees/edgar.html'  
+                window.location.href = 'employee/edgar.html'  
             } else {
                 window.location.href = 'employee/failscreen.html';
             }
