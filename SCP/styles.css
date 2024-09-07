@@ -29,7 +29,7 @@ body {
         transform: scale(1) rotate(0deg);
     }
     100% {
-        transform: scale(20) rotate(360deg);
+        transform: scale(20) rotate(-180deg);
     }
 }
 
