@@ -6,7 +6,7 @@ function validateLogin() {
         '1': '1',
         'DanielleGonzalez': '5053318662',
         'MargaretThien': '2696716504',
-        'TunaTerry': '2892564990',
+        'TerryTuna': '2892564990',
         'EdgarGraves': '7416615711'
     };
 
