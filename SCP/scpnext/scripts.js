@@ -194,8 +194,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href = 'employee/danielle.html';
             } else if (username === 'Margaret Thien') {
                 window.location.href = 'employee/margaret.html';
-            } else if (username === 'Terry Tuna') {
-                window.location.href = 'employee/terry.html';
+            } else if (username === 'Lysolos Tom') {
+                window.location.href = 'employee/lysolos.html';
             } else if (username === 'Edgar Graves') {
                 window.location.href = 'employee/edgar.html'  
             } else {
